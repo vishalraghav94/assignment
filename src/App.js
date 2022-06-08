@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { Main } from "./Components/Main/Main.js";
+import {
+  ApolloClient,
+  InMemoryCache,
+  HttpLink,
+  from,
+  ApolloProvider,
+} from "@apollo/client";
+
+import { onError } from "@apollo/client/link/error";
+
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors) {
+    graphQLErrors.forEach(({ message, location, path }) => {
+      alert(`graphql error : ${message}`);
+    });
+  }
+});
+
+// const link = from([
+//   errorLink,
+//   new HttpLink("http://smart-meeting.herokuapp.com"),
+// ]);
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: "http://smart-meeting.herokuapp.com/",
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <div className="App">
+        <Main />
+      </div>
+    </ApolloProvider>
   );
 }
 

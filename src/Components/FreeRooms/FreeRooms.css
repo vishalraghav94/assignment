@@ -1,0 +1,20 @@
+.free-rooms-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 60%;
+}
+
+.free-room-container-heading {
+  padding: 20px;
+  text-align: center;
+}
+
+.free-rooms-container .button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid green;
+  padding: 10px;
+}

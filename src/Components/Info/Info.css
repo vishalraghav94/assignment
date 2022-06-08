@@ -1,0 +1,8 @@
+.free-room-container {
+  padding: 20px 10px;
+  border: 1px solid green;
+}
+
+.free-room-container * {
+  pointer-events: none;
+}

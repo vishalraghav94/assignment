@@ -1,0 +1,45 @@
+.form-container .button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid green;
+  padding: 10px;
+}
+
+.form-container form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-container .datetime-container,
+.form-container .input-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form-container .datetime-container .datetime-label,
+.form-container .input-container .input-label {
+  text-align: center;
+}
+
+.form-container .input-container input {
+  padding: 10px;
+  border: 1px solid green;
+  outline: none;
+  font-size: 15px;
+}
+
+.form-container .button-container input {
+  background-color: blue;
+  color: white;
+  width: 200px;
+  height: auto;
+  font-size: 15px;
+  padding: 16px 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
